@@ -4,7 +4,7 @@ This repository contains my summaries and key takeaways from each chapter of the
 
 ## Table of Contents
 
-* [Volume 1](/tree/main/volume1)
+* [Volume 1](/volume1)
     * [Chapter 1: Introduction to TCP/IP Networking](/tree/main/volume1/chapter1)
     * [Chapter 2: Fundamentals of Ethernet LANS](/tree/main/volume1/chapter2)
     * [Chapter 3: Fundamentals of WANs and IP Routing](/tree/main/volume1/chapter3)
