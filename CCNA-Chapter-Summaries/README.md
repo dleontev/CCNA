@@ -4,8 +4,8 @@ This repository contains my summaries and key takeaways from each chapter of the
 
 ## Table of Contents
 
-* [Volume 1 Chapters](/CCNA-Chapter-Summaries/volume1/README.md)
-* [Volume 2 Chapters](/CCNA-Chapter-Summaries/volume2/README.md)
+* [Volume 1 Chapters](/CCNA-Chapter-Summaries/VOL1.md)
+* [Volume 2 Chapters](/CCNA-Chapter-Summaries/VOL2.md)
 
 
 ## Contributing
