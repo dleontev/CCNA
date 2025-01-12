@@ -1,0 +1,29 @@
+# Chapter 22 Commands
+
+## Configuration Commands
+
+| Command                          | Description                                                                                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `router ospf process-id`          | Global command that enters OSPF configuration mode for the listed process.                                                                              |
+| `network ip-address wildcard-mask area area-id` | Router subcommand that enables OSPF on interfaces matching the address/wildcard combination and sets the OSPF area.                                        |
+| `ip ospf process-id area area-number` | Interface subcommand to enable OSPF on the interface and to assign the interface to a specific OSPF area.                                                 |
+| `ip ospf cost interface-cost`     | Interface subcommand that sets the OSPF cost associated with the interface.                                                                            |
+| `bandwidth bandwidth`             | Interface subcommand that directly sets the interface bandwidth (Kbps).                                                                               |
+| `auto-cost reference-bandwidth number` | Router subcommand that tells OSPF the numerator in the `Reference_bandwidth/Interface_bandwidth` formula used to calculate the OSPF cost based on the interface bandwidth. |
+| `router-id id`                    | OSPF command that statically sets the router ID.                                                                                                       |
+| `interface loopback number`       | Global command to create a loopback interface and to navigate to interface configuration mode for that interface.                                         |
+
+## EXEC Commands
+
+| Command                                 | Description                                                                                                                                                                                                                                                           |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `show ip ospf`                         | Lists information about the OSPF process running on the router, including the OSPF router ID, areas to which the router connects, and the number of interfaces in each area.                                                                                                 |
+| `show ip ospf interface brief`          | Lists the interfaces on which the OSPF protocol is enabled (based on the `network` commands), including passive interfaces.                                                                                                                                             |
+| `show ip ospf interface [type number]` | Lists a long section of settings, status, and counters for OSPF operation on all interfaces, or on the listed interface, including the Hello and Dead Timers.                                                                                                                |
+| `show ip protocols`                    | Shows routing protocol parameters and current timer values.                                                                                                                                                                                                                |
+| `show ip ospf neighbor [type number]`   | Lists brief output about neighbors, identified by neighbor router ID, including current state, with one line per neighbor; optionally, limits the output to neighbors on the listed interface.                                                                               |
+| `show ip ospf neighbor neighbor-ID`     | Lists the same output as the `show ip ospf neighbor detail` command, but only for the listed neighbor (by neighbor RID).                                                                                                                                                  |
+| `show ip ospf database`                | Lists a summary of the LSAs in the database, with one line of output per LSA. It is organized by LSA type (first type 1, then type 2, and so on).                                                                                                                            |
+| `show ip route`                        | Lists all IPv4 routes.                                                                                                                                                                                                                                                        |
+| `show ip route ospf`                   | Lists routes in the routing table learned by OSPF.                                                                                                                                                                                                                          |
+| `clear ip ospf process`                | Resets the OSPF process, resetting all neighbor relationships and also causing the process to make a choice of OSPF RID.                                                                                                                                              |

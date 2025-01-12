@@ -1,0 +1,28 @@
+# Chapter 23 Commands
+
+## Configuration Commands
+
+| Command                          | Description                                                                                                                                                                 |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ip ospf network {broadcast \| point-to-point}` | Interface subcommand used to set the OSPF network type on the interface.                                                                                                   |
+| `ip ospf priority value`         | Interface subcommand that sets the OSPF priority, used when electing a new DR or BDR.                                                                                          |
+| `passive-interface type number`  | Router subcommand that makes the interface passive to OSPF, meaning that the OSPF process will not form neighbor relationships with neighbors reachable on that interface. |
+| `passive-interface default`      | OSPF subcommand that changes the OSPF default for interfaces to be passive instead of active (not passive).                                                                 |
+| `no passive-interface type number` | OSPF subcommand that tells OSPF to be active (not passive) on that interface or subinterface.                                                                              |
+| `default-information originate [always]` | OSPF subcommand to tell OSPF to create and advertise an OSPF default route, as long as the router has some default route (or to always advertise a default, if the `always` option is configured).                  |
+| `ip ospf cost interface-cost`     | Interface subcommand that sets the OSPF cost associated with the interface.                                                                                                   |
+| `bandwidth bandwidth`             | Interface subcommand that directly sets the interface bandwidth (Kbps).                                                                                                      |
+| `auto-cost reference-bandwidth number` | Router subcommand that tells OSPF the numerator in the `Reference_bandwidth / Interface_bandwidth` formula used to calculate the OSPF cost based on the interface bandwidth.                                      |
+| `ip ospf hello-interval time`     | Interface subcommand to set the OSPF Hello interval.                                                                                                                      |
+| `ip ospf dead-interval time`     | Interface subcommand to set the OSPF Dead interval.                                                                                                                      |
+
+## EXEC Commands
+
+| Command                                 | Description                                                                                                                                                                                                                                                           |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `show ip ospf interface brief`          | Lists the interfaces on which the OSPF protocol is enabled (based on the `network` commands), including passive interfaces.                                                                                                                                             |
+| `show ip ospf interface [type number]` | Lists a long section of settings, status, and counters for OSPF operation on all interfaces, or on the listed interface, including the Hello and Dead timers.                                                                                                                |
+| `show ip ospf neighbor [type number]`   | Lists brief output about neighbors, identified by neighbor router ID, including current state, with one line per neighbor; optionally, limits the output to neighbors on the listed interface.                                                                               |
+| `show ip ospf neighbor neighbor-ID`     | Lists the same output as the `show ip ospf neighbor detail` command, but only for the listed neighbor (by neighbor RID).                                                                                                                                                  |
+| `show ip route`                        | Lists all IPv4 routes.                                                                                                                                                                                                                                                        |
+| `show ip route ospf`                   | Lists routes in the routing table learned by OSPF.                                                                                                                                                                                                                          |
