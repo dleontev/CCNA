@@ -1,76 +1,69 @@
 # Chapter 7: Named and Extended IP ACLs
 
-## Named ACLs
+## Named ACLs and ACL Editing
 
-*   Named ACLs use a name instead of a number to identify the ACL.
-*   They can be standard or extended.
-*   They must be created before any rules can be added.
-*   They are generally considered easier to understand and manage than numbered ACLs.
+### Named IP Access Lists
 
-### Creating a Named ACL
+*   Similar to numbered IP ACLs, named IP ACLs function as packet filters and are used by other IOS features for matching packets and taking specific actions.
+*   They can match the same fields as their numbered counterparts: standard named ACLs match the same fields as standard numbered ACLs, and extended named ACLs match the same fields as extended numbered ACLs.
+*   Named ACLs offer several advantages over numbered ACLs:
+    *   Use names instead of numbers for easier identification.
+    *   Use ACL mode subcommands for defining actions and matching parameters.
+    *   Support ACL editing features, allowing users to delete and insert individual lines.
 
-*   Use the `ip access-list` command followed by either `standard` or `extended` and the ACL name.
+### Editing ACLs
 
-`ip access-list standard Marketing-Users`
+#### Editing Named ACLs
 
-`ip access-list extended Block-Telnet`
+*   To delete an access control entry (ACE):
+    1.  Enter ACL configuration mode using the `ip access-list` command.
+    2.  Use either of the following options:
+        *   Repeat the entire permit, deny, or remark ACL subcommand without a line number, preceded by the `no` command.
+        *   Use the `no sequence-number` command to delete the ACE that uses the listed sequence number.
 
-### Adding Rules to a Named ACL
+        ```
+        Router(config)# ip access-list standard acl_01
+        Router(config-std-nacl)# no deny 10.1.2.0 0.0.0.255
+        Router(config-std-nacl)# no 20
+        ```
 
-*   After creating the ACL, use the `permit` or `deny` command to add rules.
-*   For standard ACLs, specify the source IP address and wildcard mask.
+*   To add an ACE:
+    1.  Enter ACL configuration mode using the `ip access-list` command.
+    2.  Use either of the following options:
+        *   Configure the permit or deny command preceded by a sequence number to insert the ACE between lines. The number dictates the new ACE's location in the ACL.
+        *   Configure the permit or deny command without a sequence number, and IOS will automatically add a sequence number to place the ACE at the end of the ACL.
 
-`permit 10.1.1.0 0.0.0.255`
+        ```
+        Router(config)# ip access-list standard acl_01
+        Router(config-std-nacl)# 40 deny 10.1.2.0 0.0.0.255
+        Router(config-std-nacl)# 20 deny 10.1.1.1
+        ```
 
-*   For extended ACLs, specify the protocol, source and destination IP addresses and wildcard masks, and optional port numbers or operators.
+#### Editing Numbered ACLs
 
-`deny tcp 10.1.1.0 0.0.0.255 172.16.1.0 0.0.0.255 eq 23`
+*   Deleting individual ACEs in numbered ACLs can be achieved using ACL mode commands.
+*   To remove or add ACEs in a numbered ACL:
+    1.  Enter ACL configuration mode using the `ip access-list` command with the corresponding ACL number.
+    2.  Use the same options for removing and adding ACEs as with named ACLs.
 
-## More Extended ACL Concepts
+### Extended IP Access Control Lists
 
-*   Extended ACLs can filter traffic based on a variety of criteria, including:
-    *   Protocol (TCP, UDP, ICMP, IP)
-    *   Source and destination IP addresses and wildcard masks
-    *   Source and destination port numbers
-    *   TCP flags (SYN, ACK, FIN, etc.)
-    *   ICMP message types and codes
-*   Extended ACLs can be used to control access to network resources, prevent denial-of-service attacks, and implement security policies.
+*   Extended IP ACLs allow matching multiple header fields in a single ACE, making them more powerful than standard IP ACLs.
+*   Each ACE must list matching parameters for protocol, source address, and destination address, with additional optional fields.
 
-## Using the TCP `established` Parameter
+#### Matching the Protocol, Source IP, and Destination IP
 
-*   The `established` parameter can be used with the TCP protocol to match only packets that have the ACK or RST bits set.
-*   This can be used to allow return traffic for established connections while blocking new connections.
+*   The first matching parameter for extended ACLs is the protocol, which can be `ip` (all IPv4 packets) or a specific protocol like `tcp`, `udp`, or `icmp`.
+*   The source and destination IP address fields use the same syntax and options for matching IP addresses as discussed in Chapter 6, "Basic IPv4 Access Control Lists."
 
-`permit tcp any any established`
+#### Matching TCP and UDP Port Numbers
 
-## Filtering ICMP
+*   Extended ACLs can examine the source and destination port number fields in TCP and UDP headers.
+*   The syntax uses keywords for equal (`eq`), not equal (`neq`), less than (`lt`), greater than (`gt`), and a range of port numbers (`range`).
+*   Well-known port numbers can be represented by literal decimal values or keywords (e.g., `www` for TCP port 80).
 
-*   Extended ACLs can filter ICMP traffic based on message type and code.
-*   The `icmp-type` and `icmp-code` keywords are used to specify the ICMP message type and code.
+## Summary of Key Points
 
-`deny icmp any any icmp-type 8`
-
-## Using Other TCP Flags
-
-*   Extended ACLs can filter TCP traffic based on TCP flags other than ACK and RST.
-*   The `tcp-flags` keyword is used to specify the TCP flags to match.
-
-`permit tcp any any tcp-flags syn`
-
-## Filtering Non-IP Traffic
-
-*   Extended ACLs can filter non-IP traffic, such as ARP and IPX.
-*   The `protocol-number` keyword is used to specify the protocol number to match.
-
-`deny 4 any any`
-
-## Placing Extended ACLs
-
-*   Extended ACLs should be placed as close to the source of the traffic as possible.
-*   This helps to reduce the amount of traffic that is processed by the ACL.
-
-## Verifying ACLs
-
-*   The `show access-lists` command can be used to display all configured ACLs.
-*   The `show ip access-lists` command can be used to display IPv4 ACLs.
-*   The `show running-config` command can be used to display the running configuration, i
+*   Named ACLs offer advantages over numbered ACLs in terms of readability, configuration, and editing capabilities.
+*   Extended ACLs provide more powerful packet matching by allowing multiple header fields to be examined in a single ACE.
+*   Matching TCP and UDP port numbers in ACLs requires specifying the correct protocol (`tcp` or `udp`) and using appropriate keywords or literal decimal values.
