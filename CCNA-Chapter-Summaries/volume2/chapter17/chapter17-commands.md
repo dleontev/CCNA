@@ -5,7 +5,7 @@
 | Command | Mode | Description |
 |---|---|---|
 | `boot system flash [flash-fs:] [filename]` | Global | Identifies the location of an IOS image in flash memory. |
-| `boot system {tftp | ftp} filename [ip-address]` | Global | Identifies an external server, protocol, and filename to use to load an IOS from an external server. |
+| `boot system {tftp} filename [ip-address]` | Global | Identifies an external server, protocol, and filename to use to load an IOS from an external server. |
 | `ip ftp username name` | Global | Defines the username used when referencing the ftp: IOS file system but not supplying a username. |
 | `ip ftp password pass` | Global | Defines the password used when referencing the ftp: IOS file system but not supplying a password. |
 
