@@ -4,7 +4,7 @@
 
 | Command | Mode | Purpose/Description |
 |---|---|---|
-| `switchport mode {access | trunk}` | Interface | Tells the switch to always be an access port, or always be a trunk port. |
+| `switchport mode {access | trunk}` \| Interface | Tells the switch to always be an access port, or always be a trunk port. |
 | `switchport port-security mac-address mac-address` | Interface | Statically adds a specific MAC address as an allowed MAC address on the interface. |
 | `switchport port-security mac-address sticky` | Interface | Tells the switch to learn MAC addresses on the interface and add them to the configuration for the interface as secure MAC addresses. |
 | `switchport port-security maximum value` | Interface | Sets the maximum number of static secure MAC addresses that can be assigned to a single interface. |
@@ -20,7 +20,7 @@
 | Command | Purpose |
 |---|---|
 | `show running-config` | Lists the currently used configuration. |
-| `show running-config | interface type number` | Displays the running-configuration excerpt of the listed interface and its subcommands only. |
+| `show running-config \| interface type number` | Displays the running-configuration excerpt of the listed interface and its subcommands only. |
 | `show mac-address-table dynamic [interface type number]` | Lists the dynamically learned entries in the switch’s address (forwarding) table. |
 | `show mac-address-table secure [interface type number]` | Lists MAC addresses defined or learned on ports configured with port security. |
 | `show mac-address-table static [interface type number]` | Lists static MAC addresses and MAC addresses learned or defined with port security. |
