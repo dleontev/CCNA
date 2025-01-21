@@ -7,11 +7,11 @@
 | `[no] logging console` | Global | Enables (or disables with the `no` option) logging to the console device. |
 | `[no] logging monitor` | Global | Enables (or disables with the `no` option) logging to users connected to the device with SSH or Telnet. |
 | `[no] logging buffered` | Global | Enables (or disables with the `no` option) logging to an internal buffer. |
-| `logging [host] ip-address | hostname` | Global | Enables logging to a syslog server. |
-| `logging console level-name | level-number` | Global | Sets the log message level for console log messages. |
-| `logging monitor level-name | level-number` | Global | Sets the log message level for log messages sent to SSH and Telnet users. |
-| `logging buffered level-name | level-number` | Global | Sets the log message level for buffered log messages displayed later by the `show logging` command. |
-| `logging trap level-name | level-number` | Global | Sets the log message level for messages sent to syslog servers. |
+| `logging [host] ip-address \| hostname` | Global | Enables logging to a syslog server. |
+| `logging console level-name \| level-number` | Global | Sets the log message level for console log messages. |
+| `logging monitor level-name \| level-number` | Global | Sets the log message level for log messages sent to SSH and Telnet users. |
+| `logging buffered level-name \| level-number` | Global | Sets the log message level for buffered log messages displayed later by the `show logging` command. |
+| `logging trap level-name \| level-number` | Global | Sets the log message level for messages sent to syslog servers. |
 | `[no] service sequence-numbers` | Global | Enables or disables (with the `no` option) the use of sequence numbers in log messages. |
 | `clock timezone name +/– hours-offset [minutes-offset]` | Global | Names a time zone and defines the +/– offset versus UTC. |
 | `clock summertime name recurring` | Global | Names a daylight savings time for a time zone and tells IOS to adjust the clock automatically. |
@@ -42,9 +42,9 @@
 | `show ntp associations` | Shows all NTP clients and servers with which the local device is attempting to synchronize with NTP. |
 | `show ntp status` | Shows current NTP client status in detail. |
 | `show interfaces loopback number` | Shows the current status of the listed loopback interface. |
-| `show cdp | lldp neighbors [type number]` | Lists one summary line of information about each neighbor; optionally, lists neighbors off the listed interface. |
-| `show cdp | lldp neighbors detail` | Lists one large set of information (approximately 15 lines) for every neighbor. |
-| `show cdp | lldp entry name` | Displays the same information as `show cdp|lldp neighbors detail` but only for the named neighbor. |
-| `show cdp | lldp` | States whether CDP or LLDP is enabled globally and lists the default update and holdtime timers. |
-| `show cdp | lldp interface [type number]` | States whether CDP or LDP is enabled on each interface or a single interface if the interface is listed. |
-| `show cdp | lldp traffic` | Displays global statistics for the number of CDP or LDP advertisements sent and received. |
+| `show cdp \| lldp neighbors [type number]` | Lists one summary line of information about each neighbor; optionally, lists neighbors off the listed interface. |
+| `show cdp \| lldp neighbors detail` | Lists one large set of information (approximately 15 lines) for every neighbor. |
+| `show cdp \| lldp entry name` | Displays the same information as `show cdp|lldp neighbors detail` but only for the named neighbor. |
+| `show cdp \| lldp` | States whether CDP or LLDP is enabled globally and lists the default update and holdtime timers. |
+| `show cdp \| lldp interface [type number]` | States whether CDP or LDP is enabled on each interface or a single interface if the interface is listed. |
+| `show cdp \| lldp traffic` | Displays global statistics for the number of CDP or LDP advertisements sent and received. |
