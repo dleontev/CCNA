@@ -4,7 +4,7 @@
 
 | Command | Mode | Purpose/Description |
 |---|---|---|
-| `switchport mode {access | trunk}` \| Interface | Tells the switch to always be an access port, or always be a trunk port. |
+| `switchport mode {access \| trunk}` | Interface | Tells the switch to always be an access port, or always be a trunk port. |
 | `switchport port-security mac-address mac-address` | Interface | Statically adds a specific MAC address as an allowed MAC address on the interface. |
 | `switchport port-security mac-address sticky` | Interface | Tells the switch to learn MAC addresses on the interface and add them to the configuration for the interface as secure MAC addresses. |
 | `switchport port-security maximum value` | Interface | Sets the maximum number of static secure MAC addresses that can be assigned to a single interface. |
