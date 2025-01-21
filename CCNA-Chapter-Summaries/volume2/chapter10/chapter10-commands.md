@@ -9,7 +9,7 @@
 | `login` | Console/vty | Tells IOS to prompt for a password. |
 | `password pass-value` | Console/vty | Lists the password required if the login command is configured. |
 | `login local` | Console/vty | Tells IOS to prompt for a username and password, to be checked against locally configured username global configuration commands. |
-| `username name [algorithm-type md5 | sha256 | scrypt] secret pass-value` | Global | Defines one of possibly multiple usernames and associated passwords, stored as a hashed value (default MD5), with other hash options as well. |
+| `username name [algorithm-type md5 \| sha256 \| scrypt] secret pass-value` | Global | Defines one of possibly multiple usernames and associated passwords, stored as a hashed value (default MD5), with other hash options as well. |
 | `username name password pass-value` | Global | Defines a username and password, stored in clear text in the configuration by default. |
 | `crypto key generate rsa [modulus 512 \| 768 \| 1024]` | Global | Creates and stores (in a hidden location in flash memory) the keys required by SSH. |
 | `transport input {telnet \| ssh \| all \| none}` | vty | Defines whether Telnet and/or SSH access is allowed into this switch. |
