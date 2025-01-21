@@ -15,7 +15,7 @@
 | `[no] service sequence-numbers` | Global | Enables or disables (with the `no` option) the use of sequence numbers in log messages. |
 | `clock timezone name +/– hours-offset [minutes-offset]` | Global | Names a time zone and defines the +/– offset versus UTC. |
 | `clock summertime name recurring` | Global | Names a daylight savings time for a time zone and tells IOS to adjust the clock automatically. |
-| `ntp server address | hostname` | Global | Configures the device as an NTP client by referring to the address or name of an NTP server. |
+| `ntp server address` | Global | Configures the device as an NTP client by referring to the address or name of an NTP server. |
 | `ntp master stratum-level` | Global | Configures the device as an NTP server and assigns its local clock stratum level. |
 | `ntp source name/number` | Global | Tells NTP to use the listed interface (by name/number) for the source IP address for NTP messages. |
 | `interface loopback number` | Global | At first use, creates a loopback interface. At all uses, it also moves the user into interface configuration mode for that interface. |
